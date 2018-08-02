@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+export PHP_VERSION=${PHP_VERSION:-5.6}
+
+envsubst '${PHP_VERSION}' > /etc/supervisor/conf.d/php-fpm.conf < /etc/supervisor/conf.d/php-fpm.conf.templ
