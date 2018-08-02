@@ -3,8 +3,9 @@ FROM dezinger/ubuntu-14:latest
 MAINTAINER dezinger@gmail.com
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV PHP_VERSION 5.6
+ARG PHP_VERSION=5.6
 
+COPY files/ /
 WORKDIR /var/www
 
 RUN \

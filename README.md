@@ -1,4 +1,4 @@
-# PHP 5.6 (7) on Ubuntu 14.04 LTS (Trusty) Docker Image
+# PHP 5.6 (FPM) on Ubuntu 14.04 LTS (Trusty) Docker Image
 
 This image provides a common PHP hosting environment. 
 The intent is for the PHP application itself to be 
