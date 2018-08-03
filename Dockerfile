@@ -3,6 +3,7 @@ FROM dezinger/ubuntu-14:latest
 MAINTAINER dezinger@gmail.com
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV SSH_KEYS_DIRECTORY /root/.ssh
 ARG PHP_VERSION=5.6
 
 COPY files/ /
@@ -38,6 +39,10 @@ RUN \
     php -r "readfile('http://getcomposer.org/installer');" | \
     php -- --install-dir=/usr/bin/ --filename=composer && \
 # php-fpm config    
-    sed -i -e 's/^listen = \/run\/php\/php5.6-fpm.sock$/listen = 9000/g' /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
+    sed -i -e 's/^listen = \/run\/php\/php5.6-fpm.sock$/listen = 9000/g' /etc/php/$PHP_VERSION/fpm/pool.d/www.conf && \
+# setup mode
+    chmod +x /usr/local/bin/add-ssh-keys.sh
+
+VOLUME ["$SSH_KEYS_DIRECTORY", "/var/www"]
 
 EXPOSE 9000
