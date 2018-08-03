@@ -36,6 +36,8 @@ RUN \
     php -m && \
 # setup composer
     php -r "readfile('http://getcomposer.org/installer');" | \
-    php -- --install-dir=/usr/bin/ --filename=composer
+    php -- --install-dir=/usr/bin/ --filename=composer && \
+# php-fpm config    
+    sed -i -e 's/^listen = \/run\/php\/php5.6-fpm.sock$/listen = 9000/g' /etc/php/$PHP_VERSION/fpm/pool.d/www.conf
 
 EXPOSE 9000
