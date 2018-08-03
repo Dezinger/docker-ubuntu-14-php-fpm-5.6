@@ -14,7 +14,7 @@ RUN \
     add-apt-repository ppa:ondrej/php && apt-get -y update && \
 # setup php
     apt-get install --no-install-recommends -y \
-    curl ca-certificates git supervisor vim wget \
+    curl ca-certificates ssh git supervisor vim wget \
     php$PHP_VERSION-cli \ 
     php$PHP_VERSION-fpm \
     php$PHP_VERSION-pgsql \
