@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo "Configure php.ini"
+
+PHP_DISPLAY_ERRORS=${PHP_DISPLAY_ERRORS:-"On"}
+
+sed -i \
+    -e "s/^display_errors = Off/display_errors = ${PHP_DISPLAY_ERRORS}/" \
+    /etc/php/${PHP_VERSION}/fpm/php.ini

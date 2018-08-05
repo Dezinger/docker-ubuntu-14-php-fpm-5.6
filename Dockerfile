@@ -5,6 +5,7 @@ MAINTAINER dezinger@gmail.com
 ENV DEBIAN_FRONTEND noninteractive
 ENV SSH_KEYS_DIRECTORY /root/.ssh
 ARG PHP_VERSION=5.6
+ENV PHP_VERSION=${PHP_VERSION}
 
 COPY files/ /
 WORKDIR /var/www
@@ -40,6 +41,7 @@ RUN \
     php -- --install-dir=/usr/bin/ --filename=composer && \
 # php-fpm config    
     sed -i -e 's/^listen = \/run\/php\/php5.6-fpm.sock$/listen = 9000/g' /etc/php/$PHP_VERSION/fpm/pool.d/www.conf && \
+    ln -sf /etc/php/$PHP_VERSION/fpm/php.ini /etc/php/$PHP_VERSION/cli/php.ini && \
 # setup mode
     chmod +x /usr/local/bin/add-ssh-keys.sh
 
