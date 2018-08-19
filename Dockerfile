@@ -19,6 +19,7 @@ RUN \
     php$PHP_VERSION-cli \ 
     php$PHP_VERSION-fpm \
     php$PHP_VERSION-pgsql \
+    php$PHP_VERSION-mysql \
     php$PHP_VERSION-curl \
     php$PHP_VERSION-common \
     php$PHP_VERSION-gd \
